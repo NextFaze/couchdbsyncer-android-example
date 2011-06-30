@@ -3,8 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="../couchdbsyncer-android/libs/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="../couchdbsyncer-android/libs/gson-1.7.1.jar"/>
 	<classpathentry kind="src" path="couchdbsyncer-android_src"/>
-	<classpathentry kind="lib" path="/Users/andrew/work/2moro/components/couchdbsyncer-android/libs/commons-codec-1.5.jar"/>
-	<classpathentry kind="lib" path="/Users/andrew/work/2moro/components/couchdbsyncer-android/libs/gson-1.7.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
