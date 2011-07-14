@@ -1,7 +1,7 @@
 package au.com.team2moro.couchdbsyncerexample;
 
 import android.util.Log;
-import au.com.team2moro.couchdbsyncer.Credentials;
+import au.com.team2moro.couchdbsyncer.ConnectionSettings;
 import au.com.team2moro.couchdbsyncer.DatabaseStore;
 import au.com.team2moro.couchdbsyncer.SyncerService;
 
@@ -18,8 +18,8 @@ public class TestSyncerService extends SyncerService {
 		return dbstore;
 	}
 	
-	protected Credentials getCredentials() {
-		Credentials credentials = ((TestApplication) getApplication()).getDatabaseCredentials(getDatabase());
-		return credentials;
+	protected ConnectionSettings getConnectionSettings() {
+		ConnectionSettings connectionSettings = ((TestApplication) getApplication()).getDatabaseConnectionSettings(getDatabase());
+		return connectionSettings;
 	}
 }

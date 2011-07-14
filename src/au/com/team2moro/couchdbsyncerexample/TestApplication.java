@@ -2,7 +2,7 @@ package au.com.team2moro.couchdbsyncerexample;
 
 import android.app.Application;
 import android.content.SharedPreferences;
-import au.com.team2moro.couchdbsyncer.Credentials;
+import au.com.team2moro.couchdbsyncer.ConnectionSettings;
 import au.com.team2moro.couchdbsyncer.Database;
 import au.com.team2moro.couchdbsyncer.DatabaseStore;
 
@@ -25,18 +25,18 @@ public class TestApplication extends Application {
 		return "database_credentials_" + database.getName();
 	}
 	
-	public Credentials getDatabaseCredentials(Database database) {
+	public ConnectionSettings getDatabaseConnectionSettings(Database database) {
 		SharedPreferences pref = getSharedPreferences(getCredentialsPreferenceKey(database), MODE_PRIVATE);
 		String username = pref.getString("username", null);
 		String password = pref.getString("password", null);
-		return (username != null && password != null) ? new Credentials(username, password) : null;
+		return (username != null && password != null) ? new ConnectionSettings(username, password) : null;
 	}
 	
-	public void setDatabaseCredentials(Database database, Credentials credentials) {
+	public void setDatabaseConnectionSettings(Database database, ConnectionSettings connectionSettings) {
 		SharedPreferences pref = getSharedPreferences(getCredentialsPreferenceKey(database), MODE_PRIVATE);
 		SharedPreferences.Editor editor = pref.edit();
-		editor.putString("username", credentials.getUsername());
-		editor.putString("password", credentials.getPassword());
+		editor.putString("username", connectionSettings.getUsername());
+		editor.putString("password", connectionSettings.getPassword());
 		editor.commit();
 	}
 }

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import au.com.team2moro.couchdbsyncer.Credentials;
+import au.com.team2moro.couchdbsyncer.ConnectionSettings;
 import au.com.team2moro.couchdbsyncer.Database;
 import au.com.team2moro.couchdbsyncer.DatabaseStore;
 
@@ -48,7 +48,7 @@ public class NewDatabaseActivity extends Activity implements OnClickListener {
 			
 			DatabaseStore dbstore = ((TestApplication) getApplication()).getDatabaseStore();
 			Database database = dbstore.addDatabase(name, new URL(url));
-			application.setDatabaseCredentials(database, new Credentials(username, password));
+			application.setDatabaseConnectionSettings(database, new ConnectionSettings(username, password));
 			
 			// go back to previous activity
 			finish();  
