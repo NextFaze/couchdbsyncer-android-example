@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="../couchdbsyncer-android/libs/commons-codec-1.5.jar"/>
 	<classpathentry kind="lib" path="../couchdbsyncer-android/libs/gson-1.7.1.jar"/>
 	<classpathentry kind="src" path="couchdbsyncer-android_src"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
