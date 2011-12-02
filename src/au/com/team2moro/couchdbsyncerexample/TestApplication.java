@@ -3,6 +3,7 @@ package au.com.team2moro.couchdbsyncerexample;
 import android.app.Application;
 import android.content.SharedPreferences;
 import au.com.team2moro.couchdbsyncer.ConnectionSettings;
+import au.com.team2moro.couchdbsyncer.ConnectionSettingsTrustAll;
 import au.com.team2moro.couchdbsyncer.Database;
 import au.com.team2moro.couchdbsyncer.DatabaseStore;
 
@@ -29,7 +30,15 @@ public class TestApplication extends Application {
 		SharedPreferences pref = getSharedPreferences(getCredentialsPreferenceKey(database), MODE_PRIVATE);
 		String username = pref.getString("username", null);
 		String password = pref.getString("password", null);
-		return (username != null && password != null) ? new ConnectionSettings(username, password) : null;
+
+	    if (username != null && password != null) {
+	    	// allow self-signed ssl certificates
+	    	return new ConnectionSettings(username, password,
+	    			ConnectionSettingsTrustAll.getSocketFactory(), ConnectionSettingsTrustAll.getHostnameVerifier());
+	    }
+	    else {
+	    	return null;
+	    }
 	}
 	
 	public void setDatabaseConnectionSettings(Database database, ConnectionSettings connectionSettings) {
